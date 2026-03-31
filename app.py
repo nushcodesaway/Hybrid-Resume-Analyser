@@ -82,7 +82,9 @@ if uploaded_files and query:
     # 🔥 Explainability (Top Resume)
     st.subheader("🧠 Why this resume ranked #1")
 
+    top_text = docs[best_index]
     words = query.split()
+    
     matched_words = [w for w in words if w in top_text]
 
     st.write("Matched keywords:", ", ".join(matched_words[:5]))
