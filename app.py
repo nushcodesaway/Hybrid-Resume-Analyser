@@ -82,10 +82,10 @@ if uploaded_files and query:
     # 🔥 Explainability (Top Resume)
     st.subheader("🧠 Why this resume ranked #1")
 
-    top_text = docs[best_index]
+    words = query.split()
+    matched_words = [w for w in words if w in top_text]
 
-    st.write("This resume has the highest similarity with the job description.")
-    st.write(top_text[:300] + "...")
+    st.write("Matched keywords:", ", ".join(matched_words[:5]))
 
     # 🔥 Skill Gap Analysis
     matched, missing = skill_gap(top_text, query)
